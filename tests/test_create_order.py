@@ -10,8 +10,7 @@ class TestCreateOrder:
     @pytest.mark.parametrize("color", OrderData.COLOR_OPTIONS)
     def test_create_order_different_colors_success(self, color, order_track_cleaner):
         payload = OrderData.DEFAULT_ORDER.copy()
-        if color:
-            payload["color"] = color
+        payload["color"] = color
 
         response = requests.post(Urls.ORDERS, json=payload)
 
